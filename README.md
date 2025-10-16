@@ -1,5 +1,3 @@
-# Sugestão de melhoria para o README:
-
 ## 🚀 Como executar
 1. Clone o repositório
 2. `npm install`
