@@ -1,23 +1,23 @@
-## 🧩 Explicação da Arquitetura
+# Sugestão de melhoria para o README:
 
-### Page Object Model (POM)
-O projeto segue rigorosamente o padrão POM, onde cada página da aplicação é representada por uma classe:
+## 🚀 Como executar
+1. Clone o repositório
+2. `npm install`
+3. `npx playwright install`
+4. `npx playwright test`
 
-- **LoginPage**: Gerencia autenticação com métodos `goto()` e `login()`
-- **ProductsPage**: Controla listagem de produtos com métodos para seleção e validação
-- **ProductDetailPage**: Valida informações detalhadas (nome, preço, descrição)
-- **CartPage**: Gerencia o carrinho de compras
-- **CheckoutPage**: Processa finalização da compra
+## 📋 Cenários de teste
+- ✅ Login com credenciais válidas
+- ✅ Validação de detalhes do produto (nome, preço, descrição)
+- ✅ Adição ao carrinho
+- ✅ Fluxo completo de checkout
+- ✅ Validação de resumo do pedido
 
-### Estrutura de Testes
-Cada arquivo `.spec.js` representa um fluxo específico:
-- `login.spec.js`: Valida autenticação bem-sucedida
-- `products.spec.js`: Verifica listagem e detalhes de produtos
-- `cart.spec.js`: Testa adição e gestão do carrinho
-- `checkout.spec.js`: Valida fluxo completo de compra
+## 🧪 Execução
+- Todos os testes: `npx playwright test`
+- Com UI: `npx playwright test --ui`
+- Relatório: `npx playwright show-report`
 
-### Decisões Técnicas
-1. **Seletores descritivos**: Usamos seletores CSS estáveis e semânticos
-2. **Validações robustas**: Combinamos expectativas do Playwright com verificações customizadas
-3. **Dados de teste**: Credenciais e produtos são centralizados para facil manutenção
-4. **Cross-browser**: Configurado para rodar em Chromium, Firefox e WebKit
+## 💡 Suposições
+- Como o site não tem funcionalidade de "pesquisa", foi validada a navegação e listagem de produtos
+- Utilizados os atributos `data-test` quando disponíveis para maior estabilidade

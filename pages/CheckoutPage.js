@@ -1,40 +1,40 @@
 class CheckoutPage {
   constructor(page) {
     this.page = page;
-    this.firstNameField = '#first-name';
-    this.lastNameField = '#last-name';
-    this.postalCodeField = '#postal-code';
-    this.continueButton = '#continue';
-    this.finishButton = '#finish';
-    this.itemTotal = '.summary_subtotal_label';
-    this.tax = '.summary_tax_label';
-    this.total = '.summary_total_label';
-    this.completeHeader = '.complete-header';
+    this.firstNameField = page.locator('#first-name');
+    this.lastNameField = page.locator('#last-name');
+    this.postalCodeField = page.locator('#postal-code');
+    this.continueButton = page.locator('#continue');
+    this.finishButton = page.locator('#finish');
+    this.itemTotal = page.locator('.summary_subtotal_label');
+    this.tax = page.locator('.summary_tax_label');
+    this.total = page.locator('.summary_total_label');
+    this.completeHeader = page.locator('.complete-header');
   }
 
   async fillShippingInfo(firstName, lastName, postalCode) {
-    await this.page.fill(this.firstNameField, firstName);
-    await this.page.fill(this.lastNameField, lastName);
-    await this.page.fill(this.postalCodeField, postalCode);
+    await this.firstNameField.fill(firstName);
+    await this.lastNameField.fill(lastName);
+    await this.postalCodeField.fill(postalCode);
   }
 
   async continueToOverview() {
-    await this.page.click(this.continueButton);
+    await this.continueButton.click();
   }
 
   async finishOrder() {
-    await this.page.click(this.finishButton);
+    await this.finishButton.click();
   }
 
   async getOrderSummary() {
-    const itemTotal = await this.page.locator(this.itemTotal).innerText();
-    const tax = await this.page.locator(this.tax).innerText();
-    const total = await this.page.locator(this.total).innerText();
+    const itemTotal = await this.itemTotal.innerText();
+    const tax = await this.tax.innerText();
+    const total = await this.total.innerText();
     return { itemTotal, tax, total };
   }
 
   async getSuccessMessage() {
-    return await this.page.locator(this.completeHeader).innerText();
+    return await this.completeHeader.innerText();
   }
 }
 

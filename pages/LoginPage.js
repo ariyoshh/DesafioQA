@@ -1,19 +1,24 @@
 class LoginPage {
   constructor(page) {
     this.page = page;
-    this.usernameField = '#user-name';
-    this.passwordField = '#password';
-    this.loginButton = '#login-button';
+    this.usernameField = page.locator('#user-name');
+    this.passwordField = page.locator('#password');
+    this.loginButton = page.locator('#login-button');
+    this.inventoryList = page.locator('.inventory_list');
   }
 
   async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
+    await this.page.goto('/');
   }
 
   async login(username, password) {
-    await this.page.fill(this.usernameField, username);
-    await this.page.fill(this.passwordField, password);
-    await this.page.click(this.loginButton);
+    await this.usernameField.fill(username);
+    await this.passwordField.fill(password);
+    await this.loginButton.click();
+  }
+
+  async isLoggedIn() {
+    return await this.inventoryList.isVisible();
   }
 }
 

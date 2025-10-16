@@ -1,31 +1,25 @@
 class ProductsPage {
   constructor(page) {
     this.page = page;
-    this.inventoryItem = '.inventory_item';
-    this.inventoryItemName = '.inventory_item_name';
-    this.inventoryItemPrice = '.inventory_item_price';
-    this.addToCartButton = '.btn_primary';
-  }
-
-  async getFirstProduct() {
-    return this.page.locator(this.inventoryItem).first();
+    this.inventoryItems = page.locator('.inventory_item');
+    this.itemNames = page.locator('.inventory_item_name');
+    this.itemPrices = page.locator('.inventory_item_price');
+    this.addToCartButtons = page.locator('.btn_primary'); 
+    // this.addToCartButtons = page.locator('[data-test^="add-to-cart"]');
   }
 
   async openFirstProduct() {
-    const product = await this.getFirstProduct();
-    await product.locator(this.inventoryItemName).click();
+    await this.itemNames.first().click();
   }
 
   async getFirstProductInfo() {
-    const product = await this.getFirstProduct();
-    const name = await product.locator(this.inventoryItemName).innerText();
-    const price = await product.locator(this.inventoryItemPrice).innerText();
+    const name = await this.itemNames.first().innerText();
+    const price = await this.itemPrices.first().innerText();
     return { name, price };
   }
 
   async addFirstProductToCart() {
-    const product = await this.getFirstProduct();
-    await product.locator(this.addToCartButton).click();
+    await this.addToCartButtons.first().click();
   }
 }
 
