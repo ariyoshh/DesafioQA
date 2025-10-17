@@ -15,7 +15,3 @@
 - Todos os testes: `npx playwright test`
 - Com UI: `npx playwright test --ui`
 - Relatório: `npx playwright show-report`
-
-## 💡 Suposições
-- Como o site não tem funcionalidade de "pesquisa", foi validada a navegação e listagem de produtos
-- Utilizados os atributos `data-test` quando disponíveis para maior estabilidade
