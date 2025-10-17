@@ -8,8 +8,9 @@
 - ✅ Login com credenciais válidas
 - ✅ Validação de detalhes do produto (nome, preço, descrição)
 - ✅ Adição ao carrinho
-- ✅ Fluxo completo de checkout
 - ✅ Validação de resumo do pedido
+- ✅ Fluxo completo de checkout
+
 
 ## 🧪 Execução
 - Todos os testes: `npx playwright test`
